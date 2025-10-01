@@ -1,5 +1,4 @@
 # Glaucoma Detection with YOLO and SAM
-
 Automated glaucoma screening system that detects and segments the optic disc and cup from fundus images using **YOLO** object detection and **Segment Anything Model (SAM)** for precise segmentation.
 
 ---
@@ -22,7 +21,6 @@ cd YOLO-SAM-MODEL
 
 ### 2. Download Required Models
 Create the models directory and download both required models:
-
 ```bash
 # Create models directory
 mkdir -p src/models
@@ -35,14 +33,22 @@ wget https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth -P src
 ```
 
 **Manual Download Links:**
-- YOLO Model (`best.pt`): Download from [Releases](https://github.com/MinooAhmadii/YOLO-SAM-MODEL/releases) (~50MB)  
-- SAM Model (`sam_vit_h_4b8939.pth`): Download from [Meta](https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth) (~2.4GB)  
+- YOLO Model (best.pt): Download from Releases (~50MB)
+- SAM Model (sam_vit_h_4b8939.pth): Download from Meta (~2.4GB)
 
-Place both files in the `src/models/` directory.  
+Place both files in the `src/models/` directory.
 
-### 3. Install Requirements
+### 3. Install Dependencies
+This project uses `uv` for dependency management.
 ```bash
-pip install -r requirements.txt
+# Install uv if you haven't already
+pip install uv
+
+# Install project dependencies
+uv pip install -e .
+
+# Install SAM separately (from git repository)
+pip install git+https://github.com/facebookresearch/segment-anything.git
 ```
 
 ---
@@ -62,35 +68,33 @@ python yolo_sam_detect.py
 ---
 
 ## Results
-
 <p align="center">
   <img src="images/detected_glaucoma.jpg" width="400" alt="YOLO Detection"/>
   <img src="images/sam_result.jpg" width="400" alt="SAM Segmentation"/>
 </p>
 
 ### Final Validation Metrics (YOLO Model)
-
 **Overall**
-- mAP50: **98.0%**
-- mAP50-95: **76.6%**
+- mAP50: 98.0%
+- mAP50-95: 76.6%
 
 **Optic Disc Detection**
-- Precision: **99.9%**
-- Recall: **100%**
-- mAP50: **99.5%**
-- mAP50-95: **91.6%**
+- Precision: 99.9%
+- Recall: 100%
+- mAP50: 99.5%
+- mAP50-95: 91.6%
 
 **Optic Cup Detection**
-- Precision: **96.1%**
-- Recall: **92.9%**
-- mAP50: **96.4%**
-- mAP50-95: **61.5%**
+- Precision: 96.1%
+- Recall: 92.9%
+- mAP50: 96.4%
+- mAP50-95: 61.5%
 
 ---
 
 ## Training Details
-- **Training Set**: 2,298 images  
-- **Validation Set**: 575 images  
+- Training Set: 2,298 images
+- Validation Set: 575 images
 
 ## Dataset
 This model was trained on the [Glaucoma Dataset from Kaggle](https://www.kaggle.com/datasets/arnavjain1/glaucoma-datasets).
@@ -98,29 +102,27 @@ This model was trained on the [Glaucoma Dataset from Kaggle](https://www.kaggle.
 ### Preprocessing Pipeline
 1. Extracted optic disc and cup masks from the original dataset  
 2. Applied image preprocessing to enhance mask quality  
-3. Trained YOLO model on the preprocessed mask annotations 
+3. Trained YOLO model on the preprocessed mask annotations  
 
 ---
 
 ## CDR Thresholds
-- **Normal**: CDR < 0.5  
-- **Suspect**: 0.5 ≤ CDR < 0.7  
-- **High Risk**: CDR ≥ 0.7  
+- Normal: CDR < 0.5  
+- Suspect: 0.5 ≤ CDR < 0.7  
+- High Risk: CDR ≥ 0.7  
 
 ---
 
 ## Performance Metrics
-- **Detection Confidence**: 0.25 threshold for optimal sensitivity  
-- **Segmentation**: Multi-mask output with highest score selection  
-- **CDR Calculation**: Average of area-based & diameter-based methods for robustness  
+- Detection Confidence: 0.25 threshold for optimal sensitivity  
+- Segmentation: Multi-mask output with highest score selection  
+- CDR Calculation: Average of area-based & diameter-based methods for robustness  
 
 ---
 
 ## Requirements
-- Python 3.8+  
+- Python 3.10+  
 - PyTorch  
 - Ultralytics YOLO  
 - Segment Anything Model (SAM)  
 - CUDA-capable GPU *(optional, for faster inference)*  
-
----
