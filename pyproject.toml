@@ -4,13 +4,17 @@ version = "0.1.0"
 description = "YOLO + SAM glaucoma pipeline in the DerivaML template"
 readme = "README.md"
 requires-python = ">=3.10"
-
-
 dependencies = [
   "deriva-ml>=0.9.0",
   "deriva-globus-auth-utils",
   "ultralytics>=8.0.0",
-  "opencv-python",
+  "opencv-python>=4.5.0",
   "numpy>=1.24",
-  "matplotlib"
+  "matplotlib>=3.3.0",
+  "torch>=1.9.0",
+  "torchvision>=0.10.0",
+  "Pillow>=8.2.0",
+  "tqdm>=4.65.0",
+  "scipy>=1.7.0",
+  "scikit-image>=0.19.0"
 ]
