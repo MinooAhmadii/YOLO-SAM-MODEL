@@ -88,17 +88,17 @@ python yolo_sam_detect.py
 
 ---
 
-## Training Details
+## 🏋️ Training Details
 - **Training Set**: 2,298 images  
 - **Validation Set**: 575 images  
 
-### Dataset
-This model was trained on the **Glaucoma Dataset** from Kaggle.  
+## 📂 Dataset
+This model was trained on the [Glaucoma Dataset from Kaggle](https://www.kaggle.com/datasets/arnavjain1/glaucoma-datasets).
 
-**Preprocessing Pipeline**
-- Extracted optic disc and cup masks from the original dataset  
-- Applied preprocessing to enhance mask quality  
-- Trained YOLO model on preprocessed mask annotations  
+### Preprocessing Pipeline
+1. Extracted optic disc and cup masks from the original dataset  
+2. Applied image preprocessing to enhance mask quality  
+3. Trained YOLO model on the preprocessed mask annotations 
 
 ---
 
