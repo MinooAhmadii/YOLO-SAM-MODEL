@@ -88,11 +88,11 @@ python yolo_sam_detect.py
 
 ---
 
-## 🏋️ Training Details
+## Training Details
 - **Training Set**: 2,298 images  
 - **Validation Set**: 575 images  
 
-## 📂 Dataset
+## Dataset
 This model was trained on the [Glaucoma Dataset from Kaggle](https://www.kaggle.com/datasets/arnavjain1/glaucoma-datasets).
 
 ### Preprocessing Pipeline
