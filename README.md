@@ -4,7 +4,7 @@ Automated glaucoma screening system that detects and segments the optic disc and
 
 ---
 
-## 🚀 Features
+## Features
 - **YOLO Detection**: Fast and accurate detection of optic disc and cup regions  
 - **SAM Segmentation**: Precise boundary segmentation for improved Cup-to-Disc Ratio (CDR) calculation  
 - **Dual CDR Metrics**: Calculates CDR using both area-based and diameter-based methods  
@@ -12,7 +12,7 @@ Automated glaucoma screening system that detects and segments the optic disc and
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 ```bash
@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📌 Usage
+## Usage
 
 ### Basic YOLO Detection
 ```bash
@@ -61,7 +61,7 @@ python yolo_sam_detect.py
 
 ---
 
-## 📊 Results
+## Results
 
 <p align="center">
   <img src="images/detected_glaucoma.jpg" width="400" alt="YOLO Detection"/>
@@ -88,7 +88,7 @@ python yolo_sam_detect.py
 
 ---
 
-## 🏋️ Training Details
+## Training Details
 - **Training Set**: 2,298 images  
 - **Validation Set**: 575 images  
 
@@ -102,21 +102,21 @@ This model was trained on the **Glaucoma Dataset** from Kaggle.
 
 ---
 
-## 🩺 CDR Thresholds
+## CDR Thresholds
 - **Normal**: CDR < 0.5  
 - **Suspect**: 0.5 ≤ CDR < 0.7  
 - **High Risk**: CDR ≥ 0.7  
 
 ---
 
-## 📈 Performance Metrics
+## Performance Metrics
 - **Detection Confidence**: 0.25 threshold for optimal sensitivity  
 - **Segmentation**: Multi-mask output with highest score selection  
 - **CDR Calculation**: Average of area-based & diameter-based methods for robustness  
 
 ---
 
-## 📦 Requirements
+## Requirements
 - Python 3.8+  
 - PyTorch  
 - Ultralytics YOLO  
